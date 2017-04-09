@@ -37,7 +37,7 @@ public class SignUpChooser extends AppCompatActivity implements View.OnClickList
             finish();
           //  startActivity(new Intent(this, SignUpBusiness.class));
           //  startActivity(new Intent(this, SettingsActivity.class));
-           startActivity(new Intent(this, NavDrw.class));//// TODO: 3/8/2017 NavDrw has error
+           startActivity(new Intent(this, RegisterDevices.class));//// TODO: 3/8/2017 NavDrw has error
            // startActivity(new Intent(this, ChooseInterest.class));
            // Fragment fragment = null;
         //  fragment=new HomeActivity();

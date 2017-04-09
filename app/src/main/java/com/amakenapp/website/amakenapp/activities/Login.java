@@ -28,7 +28,9 @@ package com.amakenapp.website.amakenapp.activities;
         import java.util.HashMap;
         import java.util.Map;
 
-public class Login extends AppCompatActivity implements View.OnClickListener {
+public class Login{}
+
+        /*extends AppCompatActivity implements View.OnClickListener {
     private EditText editEmail, editPassword;
     private Button login_SignIn;
     private ProgressDialog progressDialog;
@@ -145,7 +147,4 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         MySingleton.getInstance(this).addToRequestQueue(send);
 
     }
-}
-
-
-
+}*/
