@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.amakenapp.website.amakenapp.helper.SharedPrefManager;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -75,6 +76,9 @@ public class SignUpBusiness extends AppCompatActivity implements View.OnClickLis
         editPhoneNumber = (EditText) findViewById(R.id.businessPhoneNumber);
 
         loadCountries();
+
+
+
     }
 
 

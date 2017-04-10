@@ -18,6 +18,8 @@
         android:largeHeap="true"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
+
+
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -185,12 +187,22 @@
                 android:value="com.amakenapp.website.amakenapp.activities.NavDrw" />
         </activity>
 
+
+
+
+        <activity android:name=".activities.RegisterDevices">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <service android:name=".activities.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-
 
 
         <service
@@ -200,7 +212,10 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".activities.RegisterDevices"></activity>
+
+
+
+
     </application>
 
 </manifest>
