@@ -1,15 +1,19 @@
 package com.amakenapp.website.amakenapp.activities;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 
+import com.amakenapp.website.amakenapp.helper.NotificationsListItem;
 import com.bumptech.glide.Glide;
 import com.amakenapp.website.amakenapp.R;
 import com.amakenapp.website.amakenapp.helper.ExpandReviewDetailsListItem;
 import com.amakenapp.website.amakenapp.helper.ReviewsCustomAdapter;
 import com.google.android.gms.maps.SupportMapFragment;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -32,8 +36,18 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExpandDetailsMapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener {
+import static android.os.Build.VERSION_CODES.N;
 
+public class ExpandDetailsMapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener {
+////////////////////////////////////////////////////////////////////////
+
+    NotificationCompat.Builder notification;
+    private static final int likeID = 45612;
+    private static final int bookmarkID = 45613;
+
+
+
+    //////////////////////////////////////
     private GoogleMap mMap;
     Context context;
 
@@ -72,6 +86,19 @@ public class ExpandDetailsMapsActivity extends FragmentActivity implements OnMap
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expand_details_maps);
+/////////////////////////////////////////////////////////////////////////////////////////////
+        notification = new NotificationCompat.Builder(this);
+        notification.setAutoCancel(true);
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -204,7 +231,22 @@ public class ExpandDetailsMapsActivity extends FragmentActivity implements OnMap
             Glide.with(getApplicationContext()).load(R.drawable.ic_like_fill).into(imageViewLike);
             //// TODO: 3/17/2017 aslo store like on database
             Toast.makeText(getApplicationContext(), "Added to your likes", Toast.LENGTH_LONG).show();
+///////////////////////////////////////////////////////////////////////////////////////////////////
+            notification.setSmallIcon(R.drawable.ic_like_icon);
+            notification.setTicker("ticker");
+            notification.setWhen(System.currentTimeMillis());
+            notification.setContentTitle("Your event");
+            notification.setContentText("You have a new like");
+            // when click notification go to notification
 
+            Intent intent = new Intent(this, NotificationsListItem.class);
+            PendingIntent pendingIntent = PendingIntent.getActivities(this, 0, new Intent[]{intent}, PendingIntent.FLAG_UPDATE_CURRENT);
+            notification.setContentIntent(pendingIntent);
+
+            NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            nm.notify(likeID, notification.build());
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 
         }
         if (v == imageViewSave){
@@ -212,6 +254,20 @@ public class ExpandDetailsMapsActivity extends FragmentActivity implements OnMap
             Glide.with(getApplicationContext()).load(R.drawable.ic_bookmark_fill).into(imageViewSave);
             //// TODO: 3/17/2017 aslo store bookmark on database
             Toast.makeText(getApplicationContext(), "Added to your bookmarks", Toast.LENGTH_LONG).show();
+
+            notification.setSmallIcon(R.drawable.ic_bookmark_fill);
+            notification.setTicker("ticker");
+            notification.setWhen(System.currentTimeMillis());
+            notification.setContentTitle("Your place");
+            notification.setContentText("You have a new bookmarke");
+            // when click notification go to notification
+
+            Intent intent = new Intent(this, NavDrw.class);
+            PendingIntent pendingIntent = PendingIntent.getActivities(this, 0, new Intent[]{intent}, PendingIntent.FLAG_UPDATE_CURRENT);
+            notification.setContentIntent(pendingIntent);
+
+            NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            nm.notify(bookmarkID, notification.build());
 
 
         }

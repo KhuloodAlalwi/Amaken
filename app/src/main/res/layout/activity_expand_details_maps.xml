@@ -75,11 +75,12 @@
                 android:id="@+id/imageButtonLikeHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="21dp"
-                android:focusableInTouchMode="true"
-                app:srcCompat="@drawable/ic_like_border"
                 android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/textNumberGalleryImage" />
+                android:layout_marginStart="21dp"
+                android:layout_toEndOf="@+id/textNumberGalleryImage"
+                android:focusableInTouchMode="true"
+                android:onClick="likeImageClicked"
+                app:srcCompat="@drawable/ic_like_border" />
 
             <TextView
                 android:id="@+id/textNumberLikes"

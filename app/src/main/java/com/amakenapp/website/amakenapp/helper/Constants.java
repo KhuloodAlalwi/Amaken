@@ -33,6 +33,10 @@ public class Constants {
     public static final String URL_EVENT_LIKES_NUMBERS = ROOT_URL+"getEventLikesNumbers/";
     public static final String URL_EVENT_USERS_GALLERY = ROOT_URL+"getReviewsGalleryOnEvent/";
 
+    public static final String URL_REGISTER_DEVICE = "http://amakenapp.website/placesapp/noti/Notification/RegisterDevice.php";
+    public static final String URL_SEND_SINGLE_PUSH = "http://amakenapp.website/placesapp/noti/Notification/sendSinglePush.php";
+    public static final String URL_SEND_MULTIPLE_PUSH = "http://amakenapp.website/placesapp/noti/Notification/sendMultiplePush.php";
+    public static final String URL_FETCH_DEVICES = "http://amakenapp.website/placesapp/noti/Notification/GetRegisteredDevices.php";
 
 
 
